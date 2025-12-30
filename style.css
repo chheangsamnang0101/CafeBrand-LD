@@ -1,0 +1,287 @@
+/* ===============================
+   1. RESET & GLOBAL
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Playfair Display', serif;
+  color: #1c1c1c;
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+/* ===============================
+   2. NAVBAR
+================================ */
+.navbar {
+  background-color: #1c1c1c;
+  padding: 14px 0;
+}
+
+.navbar-brand {
+  color: #ffffff !important;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.nav-link {
+  color: #dddddd !important;
+  margin-left: 20px;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #cfa670 !important;
+}
+/* ===============================
+   HERO SECTION
+================================ */
+
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Background image container */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero-bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: heroFade 25s infinite;
+}
+
+/* Dark overlay */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: -1;
+}
+
+/* Delay for each image */
+.hero-bg img:nth-child(1) { animation-delay: 0s; }
+.hero-bg img:nth-child(2) { animation-delay: 5s; }
+.hero-bg img:nth-child(3) { animation-delay: 10s; }
+.hero-bg img:nth-child(4) { animation-delay: 15s; }
+.hero-bg img:nth-child(5) { animation-delay: 20s; }
+
+/* Fade animation */
+@keyframes heroFade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  30% { opacity: 1; }
+  40% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* Content styling */
+.hero-content h1 {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.hero-content p {
+  color: #eaeaea;
+  max-width: 600px;
+  margin: auto;
+}
+
+.hero-content .btn {
+  border-color: #fff;
+  color: #fff;
+}
+
+.hero-content .btn:hover {
+  background: #fff;
+  color: #1c1c1c;
+}
+
+/* ===============================
+   SCROLLING REVIEWS (IMAGES)
+================================ */
+
+.review-scroll {
+  overflow: hidden;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.review-track {
+  display: flex;
+  gap: 20px;
+  animation: scrollReviews 25s linear infinite;
+}
+
+.review-track img {
+  width: 160px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  opacity: 0.95;
+}
+
+/* Smooth continuous scroll */
+@keyframes scrollReviews {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+  .review-track img {
+    width: 120px;
+    height: 90px;
+  }
+}
+
+
+/* ===============================
+   4. ABOUT SECTION
+================================ */
+
+.about-img {
+  width: 100%;
+  height: 400px;              /* BIG image */
+  object-fit: cover;          /* No stretch */
+  border-radius: 22px;        /* Smooth modern corners */
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.25);
+  transition: 
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.about-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.35);
+}
+
+/* Mobile fix */
+@media (max-width: 991px) {
+  .about-img {
+    height: 360px;
+    margin-bottom: 30px;
+  }
+}
+/* ===============================
+   5. MENU SECTION
+================================ */
+#menu h2 {
+  margin-bottom: 8px;
+}
+
+#menu .card {
+  border: none;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#menu .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+#menu .card img {
+  max-height: 150px;
+  object-fit: contain;
+}
+
+#menu .card h5 {
+  margin-top: 10px;
+  font-size: 1.05rem;
+}
+
+#menu .card p {
+  font-size: 0.9rem;
+}
+
+#menu .card span {
+  margin-top: 5px;
+  display: inline-block;
+  color: #cfa670;
+  font-size: 1rem;
+}
+
+/* ===============================
+   6. FOOTER
+================================ */
+footer.bg-dark {
+  background-color: #1c1c1c !important;
+}
+
+footer h5 {
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+footer p,
+footer li {
+  color: #bdbdbd;
+  font-size: 0.9rem;
+}
+
+footer hr {
+  margin: 30px 0;
+}
+
+footer:last-of-type {
+  background-color: #111;
+  color: #aaaaaa;
+  padding: 15px 0;
+  text-align: center;
+}
+
+/* ===============================
+   7. RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .nav-link {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .section-padding {
+    padding: 60px 0;
+  }
+}
